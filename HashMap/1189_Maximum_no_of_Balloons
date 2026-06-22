@@ -1,0 +1,27 @@
+class Solution {
+    public int maxNumberOfBalloons(String text) {
+        HashMap<Character,Integer> map = new HashMap<>();
+        for(int i=0;i<text.length();i++){
+            map.put(text.charAt(i),map.getOrDefault(text.charAt(i),0)+1);
+        }
+        String k = "balloon";
+        boolean a = true;
+        int count=0;
+        while(a==true){
+            for(int i=0;i<k.length();i++){
+                int s=map.getOrDefault(k.charAt(i),0);
+                if(s<1){
+                    a=false;
+                    break;
+                }
+                else{
+                    map.put(k.charAt(i),s-1);
+                }
+            }
+            if(a!=false){
+                count+=1;
+            }
+        }
+        return count;
+    }
+}
