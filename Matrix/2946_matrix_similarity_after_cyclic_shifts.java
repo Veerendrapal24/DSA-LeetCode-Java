@@ -1,3 +1,4 @@
+import java.util.*;
 class Solution {
     public boolean areSimilar(int[][] mat, int k) {
         int[][] arr = new int[mat.length][mat[0].length];
